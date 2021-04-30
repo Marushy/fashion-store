@@ -1,0 +1,25 @@
+.menuitem {
+  text-decoration: none;
+
+  &:hover {
+    opacity: 0.55;
+  }
+
+  &__img {
+    width: 100%;
+  }
+
+  .category-price {
+    color: #999999;
+    padding-top: 5px;
+  }
+
+  .line-through {
+    text-decoration: line-through;
+  }
+
+  .sale-price {
+    text-decoration: none;
+    color: #e01a1a;
+  }
+}

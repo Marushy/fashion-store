@@ -1,0 +1,35 @@
+.menu-proposal {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 20px;
+  img {
+    max-width: 100%;
+  }
+
+  .menu-item {
+    text-align: center;
+
+    img {
+      width: 100%;
+    }
+
+    a {
+      text-decoration: none;
+      color: black;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+  }
+}
+
+@media screen and(max-width: 500px) {
+  .menu-proposal {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-row-gap: 30px;
+
+    img {
+      max-width: 100%;
+    }
+  }
+}

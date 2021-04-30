@@ -1,0 +1,24 @@
+.homeitem {
+  text-decoration: none;
+  cursor: pointer;
+  &__text {
+    font-size: 24px;
+    line-height: 29px;
+    margin-top: 30px;
+    color: #000000;
+
+    &-span {
+      color: #e01a1a;
+    }
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .homeitem {
+    &__text {
+      font-size: 18px;
+      line-height: 20px;
+      margin-top: 15px;
+    }
+  }
+}

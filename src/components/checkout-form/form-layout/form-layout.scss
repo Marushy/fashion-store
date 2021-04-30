@@ -1,0 +1,56 @@
+.form-layout {
+  padding-top: 60px;
+  min-height: 80vh;
+
+  &__logo {
+    margin-bottom: 45px;
+    text-align: center;
+  }
+
+  &__links {
+    text-align: center;
+    margin-bottom: 60px;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: #c4c4c4;
+
+    button {
+      background-color: transparent;
+      border: none;
+      padding: 0 15px;
+      font-size: 14px;
+      line-height: 17px;
+      color: #c4c4c4;
+      margin-right: 48px;
+      cursor: pointer;
+    }
+
+    .next {
+      width: 10px;
+      height: 10px;
+      fill: #c4c4c4;
+      margin-left: 20px;
+    }
+  }
+}
+
+@media screen and(min-height: 601px) and(max-width: 100px) {
+  .form-layout {
+    padding-top: 40px;
+  }
+}
+
+@media screen and(max-width: 600px) {
+  .form-layout {
+    padding-top: 40px;
+    min-height: 0;
+
+    &__links {
+      button {
+        padding: 0 12px;
+        margin-right: 10px;
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+.form-success {
+  padding: 0 150px 0 60px;
+
+  &__title {
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 24px;
+    margin-bottom: 25px;
+  }
+
+  &__text {
+    font-size: 12px;
+    line-height: 15px;
+
+    color: #4f4f4f;
+  }
+}
+
+@media screen and(max-width: 768px) {
+  .form-success {
+    padding: 0 100px 0 60px;
+  }
+}

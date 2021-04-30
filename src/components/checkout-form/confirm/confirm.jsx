@@ -19,7 +19,7 @@ export class Confirm extends React.Component {
     this.props.currentStep(i);
   };
   render() {
-    const { values, handleChange } = this.props;
+    const { values } = this.props;
 
     return (
       <FormLayout current={this.currentStep}>

@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import "./product-gallery.styles.scss";
 
 function ProductGallery({ className, images }) {
-  const [thumbnails, setThumbnails] = useState(images.gallery);
+  const [thumbnails] = useState(images.gallery);
 
   const [activeIndex, setActiveIndex] = useState(0);
 

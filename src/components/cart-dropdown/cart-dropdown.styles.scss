@@ -59,3 +59,13 @@
     }
   }
 }
+
+@media screen and (max-width: 400px) {
+  .cart-dropdown {
+    max-width: 300px;
+    max-height: 555px;
+    padding: 45px 32px 24px 32px;
+    overflow: auto;
+    margin-bottom: 24px;
+  }
+}

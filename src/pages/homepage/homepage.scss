@@ -59,7 +59,7 @@
   text-align: right;
 }
 
-@media screen and (max-width: 780px) {
+@media screen and(min-width:600px) and(max-width: 780px) {
   .startpage1 {
     display: grid;
     grid-template-columns: 50px repeat(6, 1fr) 50px;
@@ -99,6 +99,51 @@
         //margin-top: 3rem;
         grid-column: 2/8;
         grid-row: 21/23;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .startpage {
+    padding-bottom: 50px;
+  }
+  .startpage1 {
+    display: grid;
+    grid-template-columns: 50px repeat(6, 1fr) 50px;
+
+    &__menu {
+      &-1 {
+        grid-column: 2/8;
+        grid-row: 1/6;
+      }
+
+      &-2 {
+        grid-column: 5/8;
+        grid-row: 5/7;
+      }
+
+      &-3 {
+        padding-top: 3em;
+        grid-column: 2/8;
+        grid-row: 9/15;
+      }
+
+      &-4 {
+        grid-column: 2/5;
+        grid-row: 14/17;
+        padding-top: -3em;
+      }
+
+      &-5 {
+        grid-column: 2/8;
+        grid-row: 16/19;
+      }
+
+      &-6 {
+        grid-column: 2/8;
+        grid-row: 20/23;
+        align-self: start;
       }
     }
   }

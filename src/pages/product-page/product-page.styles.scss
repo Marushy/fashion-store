@@ -37,10 +37,10 @@
   }
 }
 
-@media screen and (min-width: 381px) and (max-width: 804px) {
+@media screen and (max-width: 804px) {
   .product {
     background-color: #f4f7f6;
-    padding: 50px 60px;
+    padding: 50px 25px;
 
     &__first {
       width: 100%;

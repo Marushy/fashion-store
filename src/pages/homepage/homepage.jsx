@@ -16,6 +16,7 @@ class Homepage extends React.Component {
 
   render() {
     const { collections } = this.state;
+
     return (
       <Layout>
         <section className="startpage">

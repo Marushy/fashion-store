@@ -24,7 +24,7 @@ export class FormPayment extends Component {
 
   render() {
     const { values, handleChange } = this.props;
-    console.log(values.payment);
+
     return (
       <FormLayout current={this.currentStep}>
         <div className="form-payment">

@@ -4,15 +4,20 @@ import { ProductsContext } from "../../context/shop.context";
 
 import "./menu-proposal.styles.scss";
 
-const MenuProposal = ({ match }) => {
+const MenuProposal = ({ category }) => {
   const { products } = useContext(ProductsContext);
 
-  const womenProducts = products
-    .filter((product) => product.id < 4)
-    .map((product) => (
-      <MenuItem {...product} key={product.id} className="menu-item" />
-    ));
-  return <div className="menu-proposal">{womenProducts}</div>;
+  let productsFour = [];
+  if (products.length > 4) {
+    productsFour = products
+      .filter((product) => product.category === category)
+      .map((product) => (
+        <MenuItem {...product} key={product.id} className="menu-item" />
+      ))
+      .slice(0, 3);
+  }
+
+  return <div className="menu-proposal">{productsFour}</div>;
 };
 
 export default MenuProposal;

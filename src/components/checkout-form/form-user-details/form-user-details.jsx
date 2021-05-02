@@ -4,12 +4,73 @@ import FormInput from "../form-input/form-input";
 import FormLayout from "../form-layout/form-layout";
 import "./form-user-details.scss";
 
+const initialState = {
+  emailError: "",
+  firstNameError: "",
+  lastNameError: "",
+  addressError: "",
+  postalCodeError: "",
+  cityError: "",
+  countryError: "",
+};
+
 export class FormUserDetail extends React.Component {
-  userData;
-  continue = (e) => {
-    e.preventDefault();
-    this.props.nextStep();
+  state = initialState;
+
+  validate = () => {
+    let emailError = "";
+    let firstNameError = "";
+    let lastNameError = "";
+    let addressError = "";
+    let postalCodeError = "";
+    let cityError = "";
+    let countryError = "";
+
+    if (!this.props.values.email.includes("@")) {
+      emailError = "please enter valid email";
+    }
+    if (!this.props.values.firstName) {
+      firstNameError = "first name is required";
+    }
+    if (!this.props.values.lastName) {
+      lastNameError = "last name is required";
+    }
+    if (!this.props.values.address) {
+      addressError = "address is required";
+    }
+    if (!this.props.values.postalCode) {
+      postalCodeError = "postal code is required";
+    }
+    if (!this.props.values.city) {
+      cityError = "city is required";
+    }
+    if (!this.props.values.country) {
+      countryError = "country is required";
+    }
+
+    if (
+      emailError ||
+      firstNameError ||
+      lastNameError ||
+      addressError ||
+      postalCodeError ||
+      cityError ||
+      countryError
+    ) {
+      this.setState({
+        emailError,
+        firstNameError,
+        lastNameError,
+        addressError,
+        postalCodeError,
+        cityError,
+        countryError,
+      });
+      return false;
+    }
+    return true;
   };
+
   back = (e) => {
     e.preventDefault();
     this.props.prevStep();
@@ -19,46 +80,35 @@ export class FormUserDetail extends React.Component {
     this.props.currentStep(i);
   };
 
-  // React Life Cycle
-  componentDidMount() {
-    this.userData = JSON.parse(localStorage.getItem("user"));
+  formCheck = (form) => {
+    this.props.changedValidForm(form);
+  };
 
-    if (localStorage.getItem("user")) {
-      this.setState({
-        // name: this.userData.name,
-        email: this.userData.email,
-        // phone: this.userData.phone,
-      });
-    } else {
-      this.setState({
-        // name: "",
-        email: "",
-        // phone: "",
-      });
+  continue = (e) => {
+    e.preventDefault();
+    const isValid = this.validate();
+    this.formCheck(isValid);
+    if (isValid) {
+      this.props.nextStep();
+      this.setState(initialState);
     }
-    console.log(this.userData);
-  }
-
-  componentWillUpdate(nextProps, nextState) {
-    localStorage.setItem("user", JSON.stringify(nextState));
-  }
+  };
 
   render() {
     const { values, handleChange } = this.props;
 
     return (
-      <FormLayout current={this.currentStepFunc}>
+      <FormLayout current={this.currentStepFunc} values={values}>
         <div className="form-user">
           <h2 className="form-user__title">Contact Information</h2>
+          <div className="error">{this.state.emailError}</div>
           <FormInput
-            defaultValue="Bob"
             title="email"
             placeholder="Email"
-            value={values.email}
+            value={values.email || ""}
             type="email"
             onChange={handleChange("email")}
           />
-
           <h2 className="form-user__title form-user__title--second">
             Shipping address
           </h2>
@@ -66,41 +116,46 @@ export class FormUserDetail extends React.Component {
             <FormInput
               title="firstName"
               placeholder="First name"
-              value={values.firstName}
+              value={values.firstName || ""}
               type="text"
               onChange={handleChange("firstName")}
               className="half-size"
               required
             />
+            <div className="error">{this.state.firstNameError}</div>
+
             <FormInput
               title="lastName"
               placeholder="Last name"
-              value={values.lastName}
+              value={values.lastName || ""}
               type="text"
               onChange={handleChange("lastName")}
               className="half-size"
               required
             />
+            <div className="error ">{this.state.lastNameError}</div>
           </div>
           <FormInput
             title="company"
             placeholder="Company (optional)"
-            value={values.company}
+            value={values.company || ""}
             type="text"
             onChange={handleChange("company")}
           />
+          <div className="error ">{this.state.addressError}</div>
           <FormInput
             title="address"
             placeholder="Address"
-            value={values.address}
+            value={values.address || ""}
             type="text"
             onChange={handleChange("address")}
             required
           />
+
           <FormInput
             title="suite"
             placeholder="Apartment, suite, etc. (optional)"
-            value={values.suite}
+            value={values.suite || ""}
             type="text"
             onChange={handleChange("suite")}
           />
@@ -108,34 +163,38 @@ export class FormUserDetail extends React.Component {
             <FormInput
               title="postalCode"
               placeholder="Postal code"
-              value={values.postalCode}
+              value={values.postalCode || ""}
               type="text"
               onChange={handleChange("postalCode")}
               className="half-size"
               required
             />
+            <div className="error ">{this.state.postalCodeError}</div>
             <FormInput
               title="city"
               placeholder="City"
-              value={values.city}
+              value={values.city || ""}
               type="text"
               onChange={handleChange("city")}
               className="half-size"
               required
             />
+            <div className="error ">{this.state.cityError}</div>
           </div>
+          <div className="error ">{this.state.countryError}</div>
           <FormInput
             title="country"
             placeholder="Counrty/Region"
-            value={values.country}
+            value={values.country || ""}
             type="text"
             onChange={handleChange("country")}
             required
           />
+
           <FormInput
             title="phone"
             placeholder="Phone (optional)"
-            value={values.phone}
+            value={values.phone || ""}
             type="text"
             onChange={handleChange("phone")}
           />

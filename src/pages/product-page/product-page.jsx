@@ -28,7 +28,15 @@ function ProductPage({ match, history: { push } }) {
     return null;
   }
 
-  const { title, price, salePrice, sale, images, productDescription } = product;
+  const {
+    title,
+    price,
+    salePrice,
+    sale,
+    images,
+    productDescription,
+    category,
+  } = product;
   return (
     <Layout>
       <section className="product">
@@ -46,7 +54,7 @@ function ProductPage({ match, history: { push } }) {
           />
         </div>
         <div className="product__second">
-          <ProductProposal />
+          <ProductProposal category={category} />
         </div>
         {hidden ? null : <CartDropdown />}
       </section>

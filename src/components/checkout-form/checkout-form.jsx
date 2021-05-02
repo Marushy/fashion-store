@@ -5,6 +5,7 @@ import Confirm from "./confirm/confirm";
 import Success from "./success/success";
 
 export class CheckoutForm extends Component {
+  userData;
   state = {
     email: "",
     firstName: "",
@@ -18,6 +19,7 @@ export class CheckoutForm extends Component {
     phone: "",
     payment: "",
     step: 1,
+    formValid: false,
   };
 
   //proceed to next step
@@ -38,13 +40,55 @@ export class CheckoutForm extends Component {
 
   //manually change step
   currentStep = (stepPage) => {
-    this.setState({ step: stepPage });
+    console.log(this.state.formValid);
+    if (this.state.formValid) this.setState({ step: stepPage });
+  };
+
+  changedValidForm = (value) => {
+    this.setState({ formValid: value });
   };
 
   //handle fields change
   handleChange = (input) => (e) => {
     this.setState({ [input]: e.target.value });
+    localStorage.setItem("user", JSON.stringify(this.state));
   };
+
+  // React Life Cycle
+  componentDidMount() {
+    this.userData = JSON.parse(localStorage.getItem("user"));
+
+    if (localStorage.getItem("user")) {
+      this.setState({
+        email: this.userData.email,
+        firstName: this.userData.firstName,
+        lastName: this.userData.lastName,
+        company: this.userData.comapany,
+        address: this.userData.address,
+        suite: this.userData.suite,
+        postalCode: this.userData.postalCode,
+        city: this.userData.city,
+        country: this.userData.country,
+        phone: this.userData.phone,
+        payment: this.userData.payment,
+      });
+    } else {
+      this.setState({
+        email: "",
+        firstName: "",
+        lastName: "",
+        company: "",
+        address: "",
+        suite: "",
+        postalCode: "",
+        city: "",
+        country: "",
+        phone: "",
+        payment: "",
+      });
+    }
+  }
+
   render() {
     const { step } = this.state;
     const {
@@ -59,6 +103,7 @@ export class CheckoutForm extends Component {
       country,
       phone,
       payment,
+      formValid,
     } = this.state;
     const values = {
       email,
@@ -72,6 +117,7 @@ export class CheckoutForm extends Component {
       country,
       phone,
       payment,
+      formValid,
     };
 
     switch (step) {
@@ -81,6 +127,7 @@ export class CheckoutForm extends Component {
             nextStep={this.nextStep}
             currentStep={this.currentStep}
             handleChange={this.handleChange}
+            changedValidForm={this.changedValidForm}
             values={values}
           />
         );

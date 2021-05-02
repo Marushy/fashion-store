@@ -18,6 +18,7 @@ export class Confirm extends React.Component {
   currentStep = (i) => {
     this.props.currentStep(i);
   };
+
   render() {
     const { values } = this.props;
 

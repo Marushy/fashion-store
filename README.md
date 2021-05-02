@@ -1,9 +1,13 @@
-# e-commerce twst sitew built with React
+# ✨ e-commerce test site built with React ✨
 
-[COS fashion](https://cos-fashion.netlify.app/shop/women).
+## live preview
+
+[COS fashion](https://cos-fashion.netlify.app).
 
 ### product page
 
-![product page](/public/fashion store.png)
+![product page](/public/fashion-store.png)
+
+### single product page on mobile screen
 
 ![mobile look](/public/single-page-mobile.png)

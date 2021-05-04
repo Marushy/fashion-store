@@ -566,7 +566,7 @@ const PRODUCTS_DATA = [
     sale: false,
     title: "The Performance Polo",
     price: "135",
-    salePrice: "99 ",
+    salePrice: "",
     className: "category__container-item",
     productDescription: {
       descriptionFirst:
@@ -636,7 +636,7 @@ const PRODUCTS_DATA = [
     sale: false,
     title: "The Performance Chino | Uniform",
     price: "135",
-    salePrice: "99 ",
+    salePrice: "",
     className: "category__container-item",
     productDescription: {
       descriptionFirst:
@@ -671,7 +671,7 @@ const PRODUCTS_DATA = [
     sale: false,
     title: "The Performance Polo",
     price: "135",
-    salePrice: "99 ",
+    salePrice: "",
     className: "category__container-item",
     productDescription: {
       descriptionFirst:
@@ -706,7 +706,7 @@ const PRODUCTS_DATA = [
     sale: false,
     title: "jeans pants",
     price: "135",
-    salePrice: "99 ",
+    salePrice: "",
     className: "category__container-item",
     productDescription: {
       descriptionFirst:
@@ -776,7 +776,7 @@ const PRODUCTS_DATA = [
     sale: false,
     title: "The Performance Polo",
     price: "135",
-    salePrice: "99 ",
+    salePrice: "",
     className: "category__container-item",
     productDescription: {
       descriptionFirst:
@@ -811,7 +811,7 @@ const PRODUCTS_DATA = [
     sale: false,
     title: "jeans pants",
     price: "135",
-    salePrice: "99 ",
+    salePrice: "",
     className: "category__container-item",
     productDescription: {
       descriptionFirst:

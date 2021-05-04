@@ -24,6 +24,18 @@
       color: #c4c4c4;
       margin-right: 48px;
       cursor: pointer;
+
+      &:hover {
+        color: rgb(128, 124, 124);
+      }
+
+      &:active {
+        color: #000;
+      }
+
+      &:focus {
+        color: #000;
+      }
     }
 
     .next {
@@ -35,7 +47,7 @@
   }
 }
 
-@media screen and(min-height: 601px) and(max-width: 100px) {
+@media screen and(min-height: 601px) and(max-width: 1000px) {
   .form-layout {
     padding-top: 40px;
   }

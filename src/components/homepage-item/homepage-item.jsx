@@ -24,6 +24,7 @@ function HomepageItem({
           <span className="homeitem__text-span">{saleText}</span>
           {title}
         </p>
+        <div className="mask"></div>
       </div>
     </div>
   );
